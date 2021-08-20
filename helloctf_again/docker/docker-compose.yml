@@ -1,0 +1,11 @@
+version: '3'
+services:
+    helloctf_again:
+        container_name: helloctf_again
+        build: .
+        volumes:
+            - ./share/:/home/helloctf:ro
+            - ./xinetd:/etc/xinetd.d/helloctf:ro
+        ports:
+            - "11002:8787"
+
