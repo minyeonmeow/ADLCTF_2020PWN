@@ -1,0 +1,11 @@
+version: '3'
+services:
+    lucky:
+        container_name: lucky
+        build: .
+        volumes:
+            - ./share/:/home/lucky:ro
+            - ./xinetd:/etc/xinetd.d/lucky:ro
+        ports:
+            - "11003:8787"
+

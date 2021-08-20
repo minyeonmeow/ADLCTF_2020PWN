@@ -1,0 +1,16 @@
+service lucky
+{
+    disable = no
+    type = UNLISTED
+    wait = no
+    server = /home/lucky/lucky
+    socket_type = stream
+    protocol = tcp
+    user = lucky
+    port = 8787
+    flags = REUSE
+    per_source = 5
+    rlimit_cpu = 3
+    nice = 18
+}
+
