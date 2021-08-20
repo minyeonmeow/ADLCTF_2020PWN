@@ -1,0 +1,16 @@
+service family
+{
+    disable = no
+    type = UNLISTED
+    wait = no
+    server = /home/family/family
+    socket_type = stream
+    protocol = tcp
+    user = family
+    port = 8787
+    flags = REUSE
+    per_source = 5
+    rlimit_cpu = 3
+    nice = 18
+}
+

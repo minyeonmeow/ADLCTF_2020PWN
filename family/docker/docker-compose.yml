@@ -1,0 +1,11 @@
+version: '3'
+services:
+    family:
+        container_name: family
+        build: .
+        volumes:
+            - ./share/:/home/family:ro
+            - ./xinetd:/etc/xinetd.d/family:ro
+        ports:
+            - "11006:8787"
+
