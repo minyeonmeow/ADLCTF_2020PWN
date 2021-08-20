@@ -42,11 +42,11 @@ PWN for 2020 NCU ADL CTF
 
 # Demo
 - Demo 問題參考:
-    - Hello ctf again:
+    - Hello ctf and again:
         1. 為什麼不能跳到最開始的地方 (stack alignment)
         2. system 跟 execve 的差別 (system 是 fork 新 process, execve 是把目前 process 取代)
-        3. execve 後面兩個參數的作用
-        4. 這題的資安漏洞在哪裡? (有些人不清楚問題本身)
+        3. execve 後面兩個參數的作用 (第二個參數是arg，第三個參數是envp)
+        4. 這題的資安漏洞在哪裡? (`gets()`不會限制輸入，宣告的buffer又不夠大造成使用者可以輸入超出buffer大小甚至蓋到return address (buffer overflow))
     - Lucky system:
         1. 哪裡壞掉 (scanf後面參數是一個address(scanf(..., &x))，但我們直接寫成scanf(..., x)，會造成直接將輸入的東西寫在這個位置上)
         2. 如何解? (利用上面的bug，將我們要跳到的地方(execve()的位置))直接寫在GOT中`fflush`的位置(其他後面會使用的function也可以)，這樣下一行在執行`fflush()`時就會跳到`execve()`
